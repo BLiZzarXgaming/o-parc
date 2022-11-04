@@ -1,0 +1,830 @@
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+body {
+	line-height: 1;
+	color: black;
+	background: white;
+}
+ol, ul {
+	list-style: none;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+blockquote, q {
+	quotes: "" "";
+}
+
+/********************* General *********************/
+
+/* variable à utiliser dans le site */
+:root{
+    --vertFonce: #0F6B35;
+    --arrière-plan: #edf0ee;
+    --noire: #232323;
+    --blanc: #FFFFFF;
+    --vertPale: #72BB53; /* Pour les barres de progressions*/
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fjalla One', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--arrière-plan);
+    padding-bottom: 80px;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+input {
+    font-size: 14px;
+}
+
+/* couleur icone */
+i {
+    color: var(--vertFonce);
+}
+
+/********************* Header *********************/
+header div:first-of-type {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+header div:first-of-type i {
+    font-size:46px;
+    color: var(--noire);
+}
+
+header #pfp {
+    border-radius: 50%;
+    border: 2px solid var(--vertFonce);
+}
+
+header div:nth-of-type(2) {
+    background-color: var(--vertFonce);
+    width: 100vw;
+    height: 20px;
+    margin: 0;
+}
+
+#bouttonMenuDeroulant {
+    display: none;
+}
+
+.menuderoulant { /*off*/
+    transition: all 0.75s 0.25s;
+    transform: rotate(0);
+}
+
+#bouttonMenuDeroulant:checked + .menuderoulant { /*on*/
+    transform: rotate(90deg);
+}
+
+header nav { /*off*/
+    height: 0%;
+    display: block;
+    margin: auto;
+    font-size: 40px;
+    position: relative;
+    background-color: #0e6b36;;
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.75s 0.25s;
+    transform: height;
+    z-index: 99;
+}
+
+.show {
+    height: 35vh;
+}/*on*/
+
+header ul a {
+    display: block;
+    padding: 30px;
+    text-decoration: none;
+    color: white;
+}
+
+/********************* Footer *********************/
+
+footer {
+    /* positionne le footer en bas */
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    
+    padding: 10px;
+    background-color: var(--vertFonce);
+    color: white;
+    text-align: center;
+}
+
+/********************* Footer mobile *********************/
+
+#footer-mob-div {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* couleur icone */
+#footer-mob-div i {
+    color: var(--blanc);
+    font-size: 40px;
+}
+
+/********************* Accueil *********************/
+#accueil {
+
+    font-family: 'Fjalla One', sans-serif;
+
+}
+
+#accueil h1,#accueil h2 {
+
+    text-align: center;
+    margin-top: 30%;
+
+}
+
+#accueil h2 {
+
+    margin-top: 15%;
+    text-align: center;
+
+}
+
+.notif {
+    padding: 1% 1% 0 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid var(--noire);
+    background-color: var(--blanc);
+    border-radius: 5px;
+    width: 85%;
+    height: 60px;
+    margin: 8% auto;
+}
+
+.notif p {
+    
+    font-size: 13px;
+
+}
+
+#accueil article {
+
+    margin:  10px auto;
+    width: 85%;
+    border: 1px solid var(--noire);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+#accueil img {
+
+    padding: 10px;
+    width: 30%;
+
+}
+
+.circle {
+
+    border: 2px solid var(--noire);
+    background-color: var(--blanc);
+    border-radius: 100px;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 10px;
+    display: flex;
+    align-items: center;
+
+}
+
+.fa-circle-exclamation, .fa-trophy, .fa-award{
+
+    font-size: 20px;
+    display: block;
+    margin: auto;
+
+}
+
+.up {
+
+    position: relative;
+    top:-15px;
+    right: 10px;
+
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+/********************* Login *********************/
+
+#h1-log {
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 30%;
+    margin-bottom: 30%;
+    text-align: center;
+}
+
+/*met une ligne en bas de l'input*/
+#username-log, #password-log {
+    width: 300px;
+    background: linear-gradient(#000, #000) center bottom 5px /calc(100% - 10px) 2px no-repeat;
+    border: none;
+    padding: 10px;
+    
+}
+
+#username-log-div, #password-log-div {
+    width: 300px;
+    margin: 0 auto;
+}
+
+#username-log-div {
+    margin-bottom: 5%;
+}
+
+#password-log-div {
+    margin-bottom: 30%;
+}
+
+#btnSubmit-log-div {
+    margin: 0 auto;
+    width: 239px;
+    text-align: center;
+}
+
+#btnSubmit-log-div button {
+    font-size: 18px;
+    height: 47px;
+    width: 239px;
+    border-radius: 20px;
+    color: var(--blanc);
+    background-color: var(--vertFonce);
+    margin-bottom: 10px;
+}
+
+#btnSubmit-log-div a {
+    color: var(--vertFonce);
+}
+
+/********************* Sign up *********************/
+
+#h1-sign {
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 30%;
+    margin-bottom: 30%;
+    text-align: center;
+}
+
+/*met une ligne en bas de l'input*/
+#username-sign, #password-sign,#email-sign {
+    width: 300px;
+    background: linear-gradient(#000, #000) center bottom 5px /calc(100% - 10px) 2px no-repeat;
+    border: none;
+    padding: 10px;
+    
+}
+
+#username-sign-div, #password-sign-div,#email-sign-div {
+    width: 300px;
+    margin: 0 auto;
+}
+
+#username-sign-div {
+    margin-bottom: 5%;
+}
+
+#email-sign-div {
+    margin-bottom: 5%;
+}
+
+#password-sign-div {
+    margin-bottom: 30%;
+}
+
+#btnSubmit-sign-div {
+    margin: 0 auto;
+    width: 239px;
+    text-align: center;
+}
+
+#btnSubmit-sign-div button {
+    font-size: 18px;
+    height: 47px;
+    width: 239px;
+    border-radius: 20px;
+    color: var(--blanc);
+    background-color: var(--vertFonce);
+}
+/********************* Profile *********************/
+
+#profile-div-gros{
+    width: 400px;
+    margin: 5% auto 10% auto;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--blanc);
+    border-radius: 10px;
+    border: 1px solid var(--noire);
+}
+
+#profile-div-gros p {
+    font-size: 26px;
+}
+
+#profile-div-gros div, #profile-div-gros p {
+    margin-bottom: 2%;
+}
+
+#profile-div-gros div img {
+    width: 75px;
+    border-radius: 50%;
+}
+
+.profile-div-petit {
+    width: 400px;
+    margin: 0 auto;
+    margin-bottom: 7.5%;
+    padding: 18px 30px 8px 30px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--blanc);
+    border-radius: 10px;
+    border: 1px solid var(--noire);
+}
+
+.profile-div-petit p {
+    font-size: 16px;
+}
+
+.profile-div-petit i {
+    font-size: 20px;
+}
+
+/* rond progression */
+@keyframes growProgressBar {
+    0%, 33% { --pgPercentage: 0; }
+    100% { --pgPercentage: var(--value); }
+  }
+  
+  @property --pgPercentage {
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 0;
+  }
+  
+  div[role="progressbar"] {
+    --size: 6rem;
+    --pgPercentage: var(--value);
+    animation: growProgressBar 3s 1 forwards;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: 
+      radial-gradient(closest-side, white 80%, transparent 0 99.9%, white 0),
+      conic-gradient(var(--vertFonce) calc(var(--pgPercentage) * 1%), var(--vertPale) 0)
+      ;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: calc(var(--size) / 5);
+    color: var(--vertFonce);
+  }
+  
+  div[role="progressbar"]::before {
+    counter-reset: percentage var(--value);
+  }
+
+
+/********************* accueil défi/objectif *********************/
+
+#prem-accueil-defi-div {
+    display: flex;
+    width: 400px;
+    padding: 25px 8px;
+    justify-content: space-between;
+    background-color: var(--blanc);
+    margin: 17% auto 7% auto;
+    border-radius: 10px;
+    border: 1px solid var(--noire);
+}
+
+#prem-accueil-defi-div p {
+    padding-left: 10px;
+    font-size: 24px;
+    width: 66%;
+}
+
+#rond-accueil-defi {
+    width: 25%;
+}
+
+/* affiche le niveau */
+#rond-accueil-defi::before {
+    counter-reset: percentage var(--value);
+    content: '60';
+    font-size: 24px;
+}
+
+#deux-accueil-defi-div {
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    padding: 20px 20px;
+    margin: 5% auto 7% auto;
+    border-radius: 10px;
+    border: 1px solid var(--noire);
+    background-color: var(--blanc);
+}
+
+#deux-accueil-defi-div div {
+    display: flex;
+    width: 100%;
+    margin-top: 3%;
+    text-align: center;
+    padding-top: 10px;
+}
+
+#deux-accueil-defi-div div i {
+    width: 10%;
+}
+
+#deux-accueil-defi-div div p {
+    text-align: left;
+    width: 80%;
+}
+
+#trois-accueil-defi-div {
+    width: 400px;
+    margin: 5% auto 7% auto;
+    display: flex;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid var(--noire);
+    background-color: var(--blanc);
+    font-size: 20px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#trois-accueil-defi-div i {
+    width: 17.5%;
+    font-size: 45px;
+}
+
+#trois-accueil-defi-div div {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#trois-accueil-defi-div div p:first-child {
+    margin-bottom: 10px;
+}
+
+#quat-accueil-defi-div {
+    height: 100px;
+    width: 400px;
+    display: flex;
+    margin: 5% auto 7% auto;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#quat-accueil-defi-div div {
+    border-radius: 10px;
+    border: 1px solid var(--noire);
+    background-color: var(--blanc);
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    text-align: center;
+}
+
+#quat-accueil-defi-div div p {
+    height: 30%;
+    width: 100%;
+    font-size: 25px;
+}
+
+#quat-accueil-defi-div div div {
+    height: 70%;
+    width: 100%;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#quat-accueil-defi-div div div p {
+    font-size: 25px;
+    width: 60%;
+    height: 25px;
+}
+
+#quat-accueil-defi-div div div i {
+    font-size: 30px;
+}
+
+/********************* Carte *********************/
+#titleCarte {
+    background-color: #0e6b36;
+    text-align: center;
+    color: white;
+    margin-bottom: 50px;
+    padding: 5px 0;
+    font-size: 2.5em;
+}
+
+#map {
+    width: 85%;
+    height: 65vh;
+    margin: auto;
+    margin-bottom: 15px;
+}
+
+.mapboxgl-popup {
+    max-width: 400px;
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+
+path {
+    fill: var(--vertFonce);
+}
+
+/********************* Objectifs *********************/
+.objectifsHeader h2 {
+    margin-top: 0;
+}
+
+.objectifsHeader {
+    border: 1px solid #0e6b36;
+    border-radius: 10px;
+    margin: 15px auto;
+    width: 85%;
+    padding: 10px 30px;
+    background-color: white;
+}
+
+.objectifs {
+    border: 1px solid #0e6b36;
+    border-radius: 10px;
+    margin: 15px auto;
+    width: 85%;
+    padding: 10px 10px 10px 30px;
+    background-color: white;
+}
+
+.objectifsHeader img, .objectifs img {
+    margin: 10px 20px 10px 5px;
+}
+
+.objectifsHeader > div, .objectifs > div {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.objectifs > div > div {
+    width: 100%;
+}
+
+.progressionBar {
+    margin-top: 10px;
+    height: 15px;
+    width: 90%;
+    background-color: #72bb53;
+}
+
+.progressionBar > div {
+    height: 15px;
+    width: 65%;
+    background-color: #0e6b36;
+}
+
+/********************* Sondages *********************/
+.sondagesHeader {
+    border: 1px solid #0e6b36;
+    border-radius: 10px;
+    margin: 15px auto;
+    width: 85%;
+    padding: 10px 30px;
+    background-color: white;
+    font-size: 18px;
+}
+
+.sondages {
+    border: 1px solid #0e6b36;
+    border-radius: 10px;
+    margin: 15px auto;
+    width: 85%;
+    padding: 10px 30px;
+    background-color: white;
+    font-size: 18px;
+}
+
+.sondagesHeader h2 {
+    font-size: 24px;
+}
+
+.sondages h3 {
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.sondages #avis {
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 8px;
+    margin: 10px 0px;
+}
+
+.sondageflex {
+    display: flex;
+}
+
+.sondages aside {
+    display: block;
+    width: 50%;
+}
+
+.sondages .buttondiv {
+    text-align: right;
+    width: 100%;
+}
+
+.sondages button {
+    display: inline;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+/********************* message *********************/
+
+#drope-bande-verte {
+	height: 100px;
+	display: flex;
+	padding: 8px;
+	justify-content: space-evenly;
+	align-items: center;
+	margin-bottom: 50px;
+    background-color: var(--vertFonce);
+}
+
+#drope-bande-verte div {
+	width: 50px;
+	height: 50px;
+	background-color: var(--blanc);
+	border-radius: 50%;
+	text-align: center;
+}
+
+#drope-bande-verte div p {
+	color: var(--noire);
+	width: 100%;
+	height: 100%;
+	font-size: 25px;
+}
+
+#drope-bande-verte p {
+	color: var(--blanc);
+	font-size: 35px;
+}
+
+#drope-bande-verte img {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+
+.message-utilisateur {
+	background-color: var(--blanc);
+	width: 50%;
+	color: var(--noire);
+	padding: 8px;
+	margin-right: 8px;
+	text-align: center;
+	margin-left: auto;
+	border-radius: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.message-autre {
+	background-color: var(--vertFonce);
+	color: var(--blanc);
+	width: 50%;
+	padding: 8px;
+	margin-left: 8px;
+	margin-right: auto;
+	border-radius: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.img-message-envoye {
+	width: 96%;
+}
+
+#fil-message-all {
+	display: flex;
+	flex-direction: column;
+}
+
+#message-entre-util {
+	background-color: var(--vertFonce);
+	width: 100%;
+	height: 40px;
+	position: fixed;
+	left: 0;
+	bottom: 60px;
+}
+
+#message-entre-util form {
+	width: 50%;
+	margin: auto;
+	padding-top: 10px;
+	text-align: center;
+}
+
+#message-entre-util form input {
+	border-radius: 5px;
+}
+
+#message-entre-util form button {
+	border-radius: 5px;
+}
